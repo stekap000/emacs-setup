@@ -9,7 +9,10 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
+(setq ring-bell-function 'ignore)
 (toggle-frame-fullscreen)
+
+(global-set-key (kbd "C-.") 'compile)
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
