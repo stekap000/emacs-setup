@@ -6,10 +6,12 @@
 (setq-default tab-width 4)
 (defvaralias 'c-basic-offset 'tab-width)
 
+;; turn on company after init
+(add-hook 'after-init-hook 'global-company-mode)
+
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
-(setq ring-bell-function 'ignore)
 (toggle-frame-fullscreen)
 
 (global-set-key (kbd "C-.") 'compile)
@@ -25,7 +27,7 @@
  '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
    '("e27c9668d7eddf75373fa6b07475ae2d6892185f07ebed037eedf783318761d7" "18d1131ad6ff8e8e34287d6de9299faba4f1b03874278463fb6f38e3abe65bdc" default))
- '(package-selected-packages '(gruber-darker-theme zig-mode naysayer-theme)))
+ '(package-selected-packages '(company gruber-darker-theme zig-mode naysayer-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
