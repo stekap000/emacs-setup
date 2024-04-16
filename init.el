@@ -1,4 +1,8 @@
+;; Fullscreen at startup.
 (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
+
+;; Add different package archives here.
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
 ;; Uncomment for automatic refresh at start. (faster if it stays commented)
 ;;(package-refresh-contents)
@@ -15,21 +19,37 @@
 ;; Load preferred theme.
 (load-theme 'gruber-darker t)
 
-
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-
-(add-hook 'prog-mode-hook 'hs-minor-mode)
-(setq display-line-numbers-type 'relative)
-(setq-default tab-width 4)
-(defvaralias 'c-basic-offset 'tab-width)
-
+;; No unnecessary distractions.
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (toggle-frame-fullscreen)
 
+;; Display line numbers when in programming mode.
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+;; Some random options.
+(setq display-line-numbers-type 'relative)
+(setq-default tab-width 4)
+(defvaralias 'c-basic-offset 'tab-width)
+
+;; Specifically for c mode.
+(defun my-c-mode-common-hook ()
+	;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
+	(c-set-offset 'substatement-open 0)
+	;; other customizations can go here
+
+	(setq c++-tab-always-indent t)
+	(setq c-basic-offset 4)                  ;; Default is 2
+	(setq c-indent-level 4)                  ;; Default is 2
+
+	(setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+	(setq tab-width 4)
+	(setq indent-tabs-mode t)  ; use spaces only if nil
+ )
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+;; Set up key bindings.
 (global-set-key (kbd "C-.") 'compile)
 
 
@@ -49,19 +69,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(defun my-c-mode-common-hook ()
- ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
- (c-set-offset 'substatement-open 0)
- ;; other customizations can go here
-
- (setq c++-tab-always-indent t)
- (setq c-basic-offset 4)                  ;; Default is 2
- (setq c-indent-level 4)                  ;; Default is 2
-
- (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
- (setq tab-width 4)
- (setq indent-tabs-mode t)  ; use spaces only if nil
- )
-
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
