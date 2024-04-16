@@ -1,13 +1,29 @@
 (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
 
+;; Uncomment for automatic refresh at start. (faster if it stays commented)
+;;(package-refresh-contents)
+
+;; Install all needed packages for this configuration.
+(setq required-packages '(gruber-darker-theme company))
+(dolist (package required-packages)
+	(unless (package-installed-p package)
+		(package-install package)))
+
+;; Turn on company mode after init.
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; Load preferred theme.
+(load-theme 'gruber-darker t)
+
+
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 (setq display-line-numbers-type 'relative)
 (setq-default tab-width 4)
 (defvaralias 'c-basic-offset 'tab-width)
-
-;; turn on company after init
-(add-hook 'after-init-hook 'global-company-mode)
 
 (menu-bar-mode 0)
 (tool-bar-mode 0)
@@ -16,8 +32,7 @@
 
 (global-set-key (kbd "C-.") 'compile)
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -34,9 +49,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(load-theme 'gruber-darker t)
-;;(load-theme 'naysayer t)
 
 (defun my-c-mode-common-hook ()
  ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
