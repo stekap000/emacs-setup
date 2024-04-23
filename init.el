@@ -1,5 +1,9 @@
+(package-initialize)
+
 ;; Fullscreen at startup.
 (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
+
+(require 'package)
 
 ;; Add different package archives here.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
