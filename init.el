@@ -23,6 +23,9 @@
 ;; Load preferred theme.
 (load-theme 'gruber-darker t)
 
+;; Automatically update buffers on file change.
+(global-auto-revert-mode)
+
 ;; No unnecessary distractions.
 (menu-bar-mode 0)
 (tool-bar-mode 0)
