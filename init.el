@@ -32,6 +32,12 @@
 (scroll-bar-mode 0)
 (toggle-frame-fullscreen)
 
+;; Default block commenting style.
+(defun default-comment-block-style ()
+  (setq comment-start "// ")
+  (setq comment-end ""))
+(add-hook 'prog-mode-hook 'default-comment-block-style)
+
 ;; Display line numbers when in programming mode.
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
@@ -59,14 +65,13 @@
 ;; Set up key bindings.
 (global-set-key (kbd "C-.") 'compile)
 
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(gruber-darker))
+ ;;'(custom-enabled-themes '(naysayer))
  '(custom-safe-themes
    '("e27c9668d7eddf75373fa6b07475ae2d6892185f07ebed037eedf783318761d7" "18d1131ad6ff8e8e34287d6de9299faba4f1b03874278463fb6f38e3abe65bdc" default))
  '(package-selected-packages '(company gruber-darker-theme zig-mode naysayer-theme)))
