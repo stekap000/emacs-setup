@@ -8,6 +8,10 @@
 ;; Add different package archives here.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
+;; Use c++ mode for vertex and fragment shader files with extensions .vert and .frag.
+(add-to-list 'auto-mode-alist '("\\.vert" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.frag" . c++-mode))
+
 ;; Uncomment for automatic refresh at start. (faster if it stays commented)
 ;;(package-refresh-contents)
 
