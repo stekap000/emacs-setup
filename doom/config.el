@@ -92,3 +92,8 @@
 				"--header-insertion=never"
 				"--header-insertion-decorators=0"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+
+(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.inl\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.icc\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.tcc\\'" . c++-mode))
