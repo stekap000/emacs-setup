@@ -98,5 +98,10 @@
 (add-to-list 'auto-mode-alist '("\\.icc\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.tcc\\'" . c++-mode))
 
+;; The name of the 'syntactic-symbol can easily be found by using C-c C-o on the
+;; line that needs indentation change and then looking at the name of the symbol.
+(c-set-offset 'brace-list-close 0)
+(c-set-offset 'brace-list-intro 4)
+
 (setq lsp-pylsp-plugins-flake8-enabled nil)
 (setq lsp-pylsp-plugins-pydocstyle-enabled nil)
