@@ -105,3 +105,18 @@
 
 (setq lsp-pylsp-plugins-flake8-enabled nil)
 (setq lsp-pylsp-plugins-pydocstyle-enabled nil)
+
+(defun load-config () (interactive) (load-file "~/.doom.d/config.el"))
+
+(add-hook 'eww-after-render-hook 'eww-readable)
+
+;; This function grabs the name of the symbol pointed by cursor and opens the vulkan documentation for that symbol.
+(defun vulkan-symbol-doc ()
+  (interactive)
+  (setq symbol_name (symbol-name (symbol-at-point)))
+  (if (< (count-windows) 2) ;; Split window vertically if there are no 2 or more windows.
+      (split-window-right))
+  (other-window 1) ;; Move to the other window so that the eww opens the documentation there.
+  (eww (concat "https://docs.vulkan.org/refpages/latest/refpages/source/" symbol_name ".html")) nil) ;; nil because we want to reuse the same default eww buffer.
+
+(global-set-key (kbd "C-,") 'vulkan-symbol-doc)
