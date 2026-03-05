@@ -102,7 +102,7 @@
 ;; line that needs indentation change and then looking at the name of the symbol.
 (c-set-offset 'brace-list-close 0)
 (c-set-offset 'brace-list-intro 4)
-(c-set-offset 'topmost-intro   -4)
+(c-set-offset 'topmost-intro    0)
 
 (setq lsp-pylsp-plugins-flake8-enabled nil)
 (setq lsp-pylsp-plugins-pydocstyle-enabled nil)
