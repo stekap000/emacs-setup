@@ -7,6 +7,22 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "scrollbar": {
+    "show": "never"
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "git": {
+    "diff_base": "head"
+  },
+  "outline_panel": {
+    "button": true
+  },
+  "current_line_highlight": "all",
+  "cursor_shape": "block",
+  "text_rendering_mode": "platform_default",
+  "agent_buffer_font_size": 12.0,
   "project_panel": {
     "hide_hidden": true
   },
@@ -42,5 +58,18 @@
       { "token_type": "keyword", "token_modifiers": ["todo"], "foreground_color": "#77cc77", "font_weight": "bold"},
       { "token_type": "keyword", "token_modifiers": ["note"], "foreground_color": "#77cc77", "font_weight": "bold"},
     ]
+  },
+  "status_bar": {
+    "experimental.show": false
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false,
+    "code_actions": false
   }
 }
